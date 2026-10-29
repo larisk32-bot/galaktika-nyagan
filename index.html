@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>«Галактика» — детский развлекательный центр в Нягани</title>
+<meta name="description" content="Детский развлекательный центр «Галактика», Нягань, ул. Авиационная, 20/2. Игровая зона, мастер-классы, анимация, дни рождения под ключ, семейное кафе. Тел. 70-700.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800;900&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --space:#140c3d; --space2:#1f1560; --space3:#2b1d7a; --sky:#c6e3f1;
+  --text:#f3f0ff; --muted:#b9b0e6;
+  --pink:#ff3fa4; --teal:#19c9b8; --sun:#ffc93c; --orange:#ff8a1f; --violet:#7b4dff; --lime:#8bd43a;
+  --wrap:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--space);color:var(--text);font:400 18px/1.6 Nunito,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+.uf{font-family:Unbounded,system-ui,sans-serif;letter-spacing:-.01em}
+.stars{background-image:
+  radial-gradient(1.5px 1.5px at 20px 30px,#fff,transparent),radial-gradient(1px 1px at 120px 80px,#fff,transparent),
+  radial-gradient(2px 2px at 200px 160px,#ffe9a8,transparent),radial-gradient(1px 1px at 60px 190px,#fff,transparent),
+  radial-gradient(1.5px 1.5px at 260px 40px,#cbbcff,transparent);background-size:300px 220px}
+.tag{display:inline-flex;align-items:center;gap:8px;font:800 13px/1 Nunito,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--sun)}
+.rainbow{background:linear-gradient(90deg,var(--teal),var(--violet),var(--pink),var(--orange),var(--sun));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+header{position:fixed;inset:0 0 auto;z-index:20;background:rgba(20,12,61,.8);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.07)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{background:var(--sky);border-radius:16px;padding:6px 12px;display:flex}
+.logo img{height:38px;width:auto}
+nav a{margin-left:24px;font-weight:800;font-size:15px;color:var(--muted)}
+nav a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;border-radius:999px;background:var(--pink);color:#fff;font:800 16px/1 Nunito,sans-serif;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 0 #b81f72}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 0 #b81f72,0 18px 40px rgba(255,63,164,.4)}
+.btn:active{transform:translateY(4px);box-shadow:0 3px 0 #b81f72}
+.btn.teal{background:var(--teal);box-shadow:0 8px 0 #0f8a7e;color:var(--space)}
+.btn.teal:hover{box-shadow:0 10px 0 #0f8a7e,0 18px 40px rgba(25,201,184,.35)}
+header .btn{padding:12px 20px;font-size:15px;box-shadow:0 5px 0 #b81f72}
+
+/* hero */
+.hero{padding:140px 0 90px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;opacity:.8}
+.planet{position:absolute;border-radius:50%;filter:saturate(1.1)}
+.p1{width:420px;height:420px;right:-120px;top:90px;background:radial-gradient(circle at 30% 30%,#ff7ac6,#a3208f 60%,#4b0f5a);box-shadow:0 0 120px rgba(255,63,164,.35)}
+.p1::after{content:"";position:absolute;left:-30%;right:-30%;top:46%;height:16%;border-radius:50%;border:6px solid rgba(255,201,60,.75);transform:rotate(-14deg)}
+.p2{width:90px;height:90px;left:6%;bottom:40px;background:radial-gradient(circle at 30% 30%,#7ff3e6,#139b8f 70%)}
+.p3{width:40px;height:40px;left:46%;top:120px;background:radial-gradient(circle at 30% 30%,#ffe28a,#f08c00)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(40px,6vw,76px);line-height:1.02;font-weight:900;margin:20px 0 22px}
+.hero p{font-size:20px;color:var(--muted);max-width:540px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:34px}
+.photo-stack{position:relative;height:520px}
+.photo-stack img{position:absolute;border-radius:28px;object-fit:cover;border:6px solid #fff;box-shadow:0 30px 60px rgba(0,0,0,.4)}
+.photo-stack .a{width:62%;height:78%;right:4%;top:0;transform:rotate(4deg)}
+.photo-stack .b{width:48%;height:56%;left:0;bottom:0;transform:rotate(-6deg)}
+.photo-stack .bubble{position:absolute;left:8%;top:6%;background:var(--sun);color:var(--space);font:800 15px/1.25 Nunito;padding:14px 18px;border-radius:22px 22px 22px 4px;transform:rotate(-4deg);box-shadow:0 10px 30px rgba(0,0,0,.3);z-index:2}
+
+section{padding:100px 0;position:relative}
+.head{text-align:center;max-width:760px;margin:0 auto 50px}
+.head h2{font-size:clamp(32px,4.6vw,54px);font-weight:900;line-height:1.08;margin:14px 0 14px}
+.head p{color:var(--muted)}
+
+/* features strip */
+.strip{background:linear-gradient(90deg,var(--teal),var(--violet),var(--pink),var(--orange));padding:22px 0;color:#fff}
+.strip .wrap{display:flex;justify-content:space-around;flex-wrap:wrap;gap:16px 30px;font:800 17px/1.2 Nunito}
+
+/* locations */
+.locs{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.loc{border-radius:24px;overflow:hidden;background:var(--space2);border:2px solid rgba(255,255,255,.08);transition:transform .25s,border-color .25s}
+.loc:hover{transform:translateY(-6px) rotate(-1deg);border-color:var(--sun)}
+.loc img{width:100%;aspect-ratio:3/4;object-fit:cover}
+
+/* masterclasses */
+.mk{background:var(--space2)}
+.mk .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.mk h2{font-size:clamp(30px,4.2vw,50px);font-weight:900;line-height:1.08;margin:14px 0 18px}
+.mk p{color:var(--muted);margin-bottom:16px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 28px}
+.chip{padding:10px 16px;border-radius:999px;font-weight:800;font-size:15px;color:var(--space)}
+.chip:nth-child(5n+1){background:var(--sun)}.chip:nth-child(5n+2){background:var(--teal)}.chip:nth-child(5n+3){background:#ff9fd0}.chip:nth-child(5n+4){background:#c5b2ff}.chip:nth-child(5n+5){background:var(--lime)}
+.free{display:flex;gap:16px;align-items:center;background:var(--space3);border-radius:22px;padding:22px 24px;border:2px dashed var(--sun)}
+.free b{font:900 32px/1 Unbounded;color:var(--sun);white-space:nowrap}
+.mk .pic{position:relative}
+.mk .pic img{border-radius:30px;width:100%;aspect-ratio:1;object-fit:cover}
+
+/* birthday */
+.bd .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--space2);border-radius:26px;padding:30px 26px;border:2px solid rgba(255,255,255,.07)}
+.card .ic{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;font-size:28px;margin-bottom:18px}
+.card h3{font:800 21px/1.25 Unbounded;margin-bottom:10px}
+.card p{font-size:16px;color:var(--muted)}
+.bd .wide{margin-top:18px;display:grid;grid-template-columns:.9fr 1.1fr;gap:0;border-radius:30px;overflow:hidden;background:linear-gradient(135deg,var(--violet),var(--pink))}
+.bd .wide img{width:100%;height:100%;object-fit:cover;object-position:50% 100%;min-height:320px}
+.bd .wide div{padding:40px}
+.bd .wide h3{font:900 clamp(26px,3vw,36px)/1.1 Unbounded;margin-bottom:14px}
+.bd .wide p{margin-bottom:22px;color:#ffe6f4}
+.bd .wide .btn{background:#fff;color:var(--pink);box-shadow:0 8px 0 #d9c8ff}
+
+/* cafe */
+.cafe{background:#fff5e4;color:#2a1a52}
+.cafe .head p{color:#6c5c8c}
+.cafe .tag{color:var(--orange)}
+.food{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.food img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:22px}
+.cafe .notes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+.cafe .notes div{background:#fff;border-radius:20px;padding:22px 24px;box-shadow:0 10px 30px rgba(42,26,82,.08);font-size:16px}
+.cafe .notes b{display:block;font:800 18px/1.3 Unbounded;margin-bottom:6px;color:var(--violet)}
+
+/* groups / prices */
+.groups .box{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.price{background:var(--space2);border-radius:26px;padding:32px;border:2px solid rgba(255,255,255,.07)}
+.price h3{font:800 22px/1.2 Unbounded;margin-bottom:6px}
+.price small{color:var(--muted);font-size:15px}
+.price .r{display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;border-bottom:1px dashed rgba(255,255,255,.15)}
+.price .r b{font:900 26px/1 Unbounded;color:var(--teal)}
+.groups .note{text-align:center;color:var(--muted);font-size:15px;margin-top:20px}
+
+/* contacts */
+.contacts{background:var(--space2)}
+.cbox{display:grid;grid-template-columns:1.2fr .8fr;gap:22px}
+.addr{background:var(--space3);border-radius:28px;padding:36px}
+.addr dl{display:grid;gap:22px}
+.addr dt{font:800 12px/1 Nunito;letter-spacing:.18em;text-transform:uppercase;color:var(--sun);margin-bottom:6px}
+.addr dd{font-size:21px;font-weight:600}
+.addr dd a{border-bottom:2px solid rgba(255,255,255,.2)}
+.addr .cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:30px}
+.rules{background:var(--sky);color:var(--space);border-radius:28px;padding:32px}
+.rules h3{font:800 20px/1.2 Unbounded;margin-bottom:14px}
+.rules li{margin:0 0 10px 20px;font-size:16px}
+footer{padding:26px 0 34px;color:var(--muted);font-size:14px;border-top:1px solid rgba(255,255,255,.07)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.callbar{display:none}
+
+.rv{opacity:0;transform:translateY(24px) scale(.98);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.9,.3,1.3)}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:1000px){
+  .locs{grid-template-columns:repeat(3,1fr)}
+  .food{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:860px){
+  nav{display:none}
+  header .btn{display:none}
+  .hero{padding-top:110px}
+  .hero .wrap,.mk .wrap,.cbox,.groups .box,.bd .wide{grid-template-columns:1fr}
+  .photo-stack{height:400px;max-width:440px;width:100%;margin:0 auto}
+  .p1{width:260px;height:260px;right:-120px;top:60px;opacity:.6}
+  .p3{display:none}
+  .bd .grid,.cafe .notes{grid-template-columns:1fr}
+  .locs{grid-template-columns:1fr 1fr}
+  section{padding:70px 0}
+  .bd .wide div{padding:30px 24px}
+  .callbar{display:flex;position:fixed;left:12px;right:12px;bottom:14px;z-index:30;gap:10px}
+  .callbar a{flex:1;padding:15px 8px}
+  footer{padding-bottom:100px}
+}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body class="stars">
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top"><img src="img/logo_wide.png" alt="Галактика, детский развлекательный центр"></a>
+    <nav>
+      <a href="#zone">Локации</a>
+      <a href="#mk">Мастер-классы</a>
+      <a href="#bd">Дни рождения</a>
+      <a href="#cafe">Кафе</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="btn" href="tel:+73467270700">📞 70-700</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="planet p1"></div><div class="planet p2"></div><div class="planet p3"></div>
+    <div class="wrap">
+      <div>
+        <span class="tag rv">🚀 Детский развлекательный центр · Нягань</span>
+        <h1 class="uf rv">Целая <span class="rainbow">Галактика</span> радости для&nbsp;ваших детей</h1>
+        <p class="rv">Огромная игровая зона, мастер-классы каждые выходные, анимация, дни рождения под ключ и семейное кафе, где вкусно и взрослым.</p>
+        <div class="cta rv">
+          <a class="btn" href="tel:+73467270700">Позвонить: 70-700</a>
+          <a class="btn teal" href="#zone">Что внутри?</a>
+        </div>
+      </div>
+      <div class="photo-stack rv">
+        <img class="a" src="img/zone.jpg" alt="Игровая зона с сухим бассейном и горками">
+        <img class="b" src="img/zone2.jpg" alt="Малыш в игровой зоне">
+        <div class="bubble">Ждём в гости, ребята! 💫</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip"><div class="wrap"><span>🎢 Активити-парк</span><span>🎨 Мастер-классы</span><span>🎉 Анимация и шоу</span><span>🎂 Дни рождения</span><span>🍕 Семейное кафе</span></div></div>
+
+  <section id="zone">
+    <div class="wrap">
+      <div class="head">
+        <span class="tag rv">✨ Локации</span>
+        <h2 class="uf rv">10 миров в одном центре</h2>
+        <p class="rv">Каждая локация отдельное приключение: здесь можно кататься, лазать, гонять мяч и прятаться от привидений.</p>
+      </div>
+      <div class="locs">
+        <div class="loc rv"><img src="img/loc_carousel.jpg" alt="Вращающаяся карусель"></div>
+        <div class="loc rv"><img src="img/loc_tubing.jpg" alt="Тюбинговая горка"></div>
+        <div class="loc rv"><img src="img/loc_alice.jpg" alt="Алиса в стране чудес и Дом с привидениями"></div>
+        <div class="loc rv"><img src="img/loc_ninja.jpg" alt="Ниндзя-квест"></div>
+        <div class="loc rv"><img src="img/loc_pool.jpg" alt="Воздушный бассейн с горками"></div>
+        <div class="loc rv"><img src="img/loc_football.jpg" alt="Футбольное поле"></div>
+        <div class="loc rv"><img src="img/loc_race.jpg" alt="Гоночная трасса с машинками на пульте"></div>
+        <div class="loc rv"><img src="img/loc_sand.jpg" alt="Песочница с маленькими камушками"></div>
+        <div class="loc rv"><img src="img/loc_cafe.jpg" alt="Кафе Галактика"></div>
+        <div class="loc rv"><img src="img/loc_party.jpg" alt="Комнаты для дня рождения"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mk" id="mk">
+    <div class="wrap">
+      <div>
+        <span class="tag rv">🎨 Каждые выходные</span>
+        <h2 class="uf rv">Мастер-классы: творим, лепим, удивляемся</h2>
+        <p class="rv">Чтобы дома не было краски на мебели и пластилина на ковре, приходите творить к нам. Новое расписание каждую неделю публикуем во ВКонтакте.</p>
+        <div class="chips rv">
+          <span class="chip">Слаймы</span><span class="chip">Брелоки из эпоксидки</span><span class="chip">Свечи из вощины</span><span class="chip">Сквиши</span><span class="chip">Роспись гипса</span><span class="chip">Фетр</span><span class="chip">Фоамиран</span><span class="chip">Декупаж</span><span class="chip">Полимерная глина</span>
+        </div>
+        <div class="free rv"><b>0 ₽</b><div>Мастер-классы входят в стоимость посещения центра. Группа до 10 человек, запись обязательна.</div></div>
+      </div>
+      <div class="pic rv"><img src="img/tree.jpg" alt="Афиша новогодней программы «Космическая ёлка»"></div>
+    </div>
+  </section>
+
+  <section class="bd" id="bd">
+    <div class="wrap">
+      <div class="head">
+        <span class="tag rv">🎂 Праздники</span>
+        <h2 class="uf rv">День рождения под&nbsp;ключ</h2>
+        <p class="rv">Вы приходите с гостями, всё остальное мы берём на себя.</p>
+      </div>
+      <div class="grid">
+        <div class="card rv"><div class="ic" style="background:var(--pink)">🎈</div><h3>Комнаты для праздника</h3><p>Отдельные банкетные зоны для камерных мероприятий и WOW-сервировка для детей.</p></div>
+        <div class="card rv"><div class="ic" style="background:var(--teal)">🦸</div><h3>Анимация и шоу</h3><p>Анимационные программы, неоновое шоу, шоу мыльных пузырей и аквагрим.</p></div>
+        <div class="card rv"><div class="ic" style="background:var(--sun)">🎁</div><h3>Сертификат в подарок</h3><p>Не знаете, что подарить ребёнку? Сертификат в «Галактику» сам по себе ещё один праздник.</p></div>
+      </div>
+      <div class="wide rv">
+        <img src="img/team.jpg" alt="Дед Мороз, Снегурочка и герои в «Галактике»">
+        <div>
+          <h3 class="uf">Новогодняя программа «Космическая ёлка: Миссия Счастье»</h3>
+          <p>Танцы, игры, творческие задания, и ребята сами зажгут заветную звезду Счастья. Запись уже открыта!</p>
+          <a class="btn" href="tel:+79044870700">+7 904 487-07-00</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cafe" id="cafe">
+    <div class="wrap">
+      <div class="head">
+        <span class="tag rv">🍽 Семейное кафе</span>
+        <h2 class="uf rv">Вкусно детям и&nbsp;взрослым</h2>
+        <p class="rv">Русская и европейская кухня, красивая подача и коктейли, которые дети не забудут. Кстати, без детей тоже пускаем 😉</p>
+      </div>
+      <div class="food">
+        <img class="rv" src="img/shake1.jpg" alt="Молочный коктейль">
+        <img class="rv" src="img/dish1.jpg" alt="Паста с мидиями">
+        <img class="rv" src="img/shake2.jpg" alt="Коктейль с маршмеллоу">
+        <img class="rv" src="img/dish2.jpg" alt="Детское блюдо с сосисками">
+        <img class="rv" src="img/shake3.jpg" alt="Молочный коктейль со сливками">
+        <img class="rv" src="img/dish3.jpg" alt="Горячее блюдо">
+      </div>
+      <div class="notes">
+        <div class="rv"><b>Быстро</b>Салаты и десерты 10–15 минут, горячее 20–30 минут</div>
+        <div class="rv"><b>Кофе для мам и пап</b>Капучино, латте, флэт уайт и большой выбор сиропов</div>
+        <div class="rv"><b>Для малышей</b>Есть стульчики для кормления самых маленьких</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="groups">
+    <div class="wrap">
+      <div class="head">
+        <span class="tag rv">🏫 Классом или садиком</span>
+        <h2 class="uf rv">Групповые посещения</h2>
+        <p class="rv">Отличный повод выбраться всем классом или группой детского сада. С 10:00 до 15:00, от 20 человек.</p>
+      </div>
+      <div class="box">
+        <div class="price rv"><h3>Будни</h3><small>с 10:00 до 15:00, от 20 человек</small><div class="r"><span>Час</span><b>500 ₽</b></div><div class="r"><span>Безлимит</span><b>1 200 ₽</b></div></div>
+        <div class="price rv"><h3>Выходные</h3><small>с 10:00 до 15:00, от 20 человек</small><div class="r"><span>Час</span><b>600 ₽</b></div><div class="r"><span>Безлимит</span><b>1 300 ₽</b></div></div>
+      </div>
+      <p class="note rv">Условия из предложения центра (сентябрь 2025), актуальные уточняйте по телефону 70-700.</p>
+    </div>
+  </section>
+
+  <section class="contacts" id="contacts">
+    <div class="wrap">
+      <div class="head">
+        <span class="tag rv">📍 Ждём вас</span>
+        <h2 class="uf rv">Как нас найти</h2>
+      </div>
+      <div class="cbox">
+        <div class="addr rv">
+          <dl>
+            <div><dt>Адрес</dt><dd>Нягань, ул. Авиационная, 20/2</dd></div>
+            <div><dt>Телефон</dt><dd><a href="tel:+73467270700">70-700</a> · <a href="tel:+79044870700">+7 904 487-07-00</a></dd></div>
+          </dl>
+          <div class="cta">
+            <a class="btn" href="tel:+73467270700">Позвонить</a>
+            <a class="btn teal" href="https://vk.me/galaktika_86" target="_blank" rel="noopener">Написать в ВК</a>
+            <a class="btn teal" href="https://yandex.ru/maps/?text=%D0%9D%D1%8F%D0%B3%D0%B0%D0%BD%D1%8C%2C%20%D0%90%D0%B2%D0%B8%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%B0%D1%8F%2020%2F2" target="_blank" rel="noopener">Маршрут</a>
+          </div>
+        </div>
+        <div class="rules rv">
+          <h3>Перед визитом</h3>
+          <ul>
+            <li>При первом посещении заполняется анкета: это обязательно для безопасности детей.</li>
+            <li>На мастер-классы и праздничные программы запись заранее.</li>
+            <li>Бронь столов и свободные места в кафе уточняйте по телефону 70-700.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© Детский развлекательный центр «Галактика» · Нягань</span>
+    <a href="https://vk.ru/galaktika_86" target="_blank" rel="noopener">vk.ru/galaktika_86</a>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="btn" href="tel:+73467270700">📞 70-700</a>
+  <a class="btn teal" href="https://vk.me/galaktika_86">ВКонтакте</a>
+</div>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
