@@ -360,7 +360,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         <label class="opt"><input type="checkbox" id="pd"> Даю согласие на обработку моих персональных данных и данных ребёнка (152-ФЗ) *</label>
         <p class="err" id="ankErr">Заполните поля со звёздочкой и отметьте согласия.</p>
         <button class="btn" type="submit">Отправить анкету</button>
-        <p class="demo">Демо-версия: данные никуда не отправляются. В рабочей версии анкета сразу придёт администратору.</p>
+        <p class="demo">Демо-версия: данные никуда не отправляются, анкета остаётся только на этом устройстве. Её видно в <a href="admin.html" style="border-bottom:1px solid var(--muted)">демо-админке</a>. В рабочей версии анкета сразу придёт администратору.</p>
       </form>
       <div class="done" id="ankDone">
         <h3>Анкета готова! 🚀</h3>
@@ -442,6 +442,7 @@ fm.addEventListener('submit',e=>{e.preventDefault();
   ks.map((k,i)=>`Ребёнок ${i+1}: ${k.n}, ${fmt(k.b)} (${yrs(age(k.b))})${k.t?'\n  Важно: '+k.t:''}`).join('\n')+
   (v('pickup')?`\nМожет забрать: ${v('pickup')}`:'')+
   `\nФото/видео: ${document.querySelector('input[name=photo]:checked').value}\nСогласия: правила ✔, персональные данные ✔`;
+ try{const L=JSON.parse(localStorage.getItem('gal_ankety')||'[]');L.unshift({code,parent:v('pName'),phone:v('pPhone'),kids:ks,pickup:v('pickup'),photo:document.querySelector('input[name=photo]:checked').value,at:Date.now(),mine:true});localStorage.setItem('gal_ankety',JSON.stringify(L.slice(0,20)))}catch(err){}
  fm.style.display='none';done.style.display='block';done.scrollIntoView({behavior:'smooth',block:'start'})});
 document.getElementById('ankNew').onclick=()=>{fm.reset();kids.innerHTML='';addKid();done.style.display='none';fm.style.display='block';fm.scrollIntoView({behavior:'smooth'})};
 

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Анкеты гостей — «Галактика» (админ)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800;900&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --space:#140c3d; --space2:#1f1560; --space3:#2b1d7a; --sky:#c6e3f1;
+  --text:#f3f0ff; --muted:#b9b0e6;
+  --pink:#ff3fa4; --teal:#19c9b8; --sun:#ffc93c; --violet:#7b4dff; --tg:#2aabee;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--space);color:var(--text);font:400 17px/1.5 Nunito,system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh}
+button{font:inherit;cursor:pointer}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+.demo-bar{background:var(--sun);color:var(--space);text-align:center;font:800 14px/1.3 Nunito;padding:8px 16px}
+.logo{background:var(--sky);border-radius:14px;padding:5px 10px;display:inline-flex}
+.logo img{height:32px;width:auto}
+
+/* login */
+.login{min-height:calc(100vh - 36px);display:grid;place-items:center;padding:30px 16px}
+.lbox{background:var(--space2);border:2px solid rgba(255,255,255,.08);border-radius:30px;padding:40px 32px;max-width:420px;width:100%;text-align:center}
+.lbox h1{font:900 26px/1.15 Unbounded;margin:22px 0 10px}
+.lbox p{color:var(--muted);font-size:16px;margin-bottom:26px}
+.tgbtn{display:inline-flex;align-items:center;gap:10px;background:var(--tg);color:#fff;border:0;border-radius:999px;padding:15px 26px;font:800 17px/1 Nunito;box-shadow:0 6px 0 #1a7fb3}
+.tgbtn:active{transform:translateY(3px);box-shadow:0 3px 0 #1a7fb3}
+.tgbtn svg{width:22px;height:22px}
+.lbox small{display:block;margin-top:22px;color:var(--muted);font-size:13px}
+.lbox small b{color:var(--sun)}
+.or{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:14px;margin:22px 0 16px}
+.or::before,.or::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.15)}
+.pw{display:grid;gap:10px}
+.pw input{font:600 17px Nunito;color:var(--text);background:var(--space);border:2px solid rgba(255,255,255,.14);border-radius:16px;padding:13px 16px;width:100%}
+.pw input:focus{outline:none;border-color:var(--teal)}
+.pwbtn{background:var(--pink);color:#fff;border:0;border-radius:999px;padding:14px;font:800 17px/1 Nunito;box-shadow:0 6px 0 #b81f72}
+.pwbtn:active{transform:translateY(3px);box-shadow:0 3px 0 #b81f72}
+.lerr{color:#ff9fb8;font-weight:800;font-size:15px}
+
+/* panel */
+.top{position:sticky;top:0;z-index:5;background:rgba(20,12,61,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.07)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:64px}
+.who{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px;color:var(--muted)}
+.ava{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--violet));display:grid;place-items:center;color:#fff;font-weight:900}
+.out{background:none;border:2px solid rgba(255,255,255,.18);color:var(--muted);border-radius:999px;padding:6px 14px;font-weight:800;font-size:14px}
+main{padding:26px 0 60px}
+h2{font:900 clamp(24px,4vw,34px)/1.1 Unbounded;margin-bottom:18px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+.stat{background:var(--space2);border-radius:20px;padding:16px 18px}
+.stat b{display:block;font:900 30px/1 Unbounded;color:var(--sun)}
+.stat span{font-size:14px;color:var(--muted)}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.search{flex:1;min-width:220px;font:600 17px Nunito;color:var(--text);background:var(--space2);border:2px solid rgba(255,255,255,.14);border-radius:16px;padding:13px 16px}
+.search:focus{outline:none;border-color:var(--teal)}
+.flt{background:var(--space2);border:2px solid rgba(255,255,255,.14);color:var(--muted);border-radius:999px;padding:10px 16px;font-weight:800;font-size:15px}
+.flt.on{background:var(--teal);border-color:var(--teal);color:var(--space)}
+.list{display:grid;gap:12px}
+.a{background:var(--space2);border:2px solid rgba(255,255,255,.07);border-radius:22px;padding:18px 20px}
+.a.new{border-color:var(--pink)}
+.ah{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.code{font:900 20px/1 Unbounded;color:var(--violet);background:#fff;border-radius:12px;padding:8px 12px}
+.ah .n{flex:1;min-width:180px}
+.ah .n b{font-size:18px;display:block}
+.ah .n a{color:var(--muted);font-size:15px;text-decoration:none}
+.when{font-size:13px;color:var(--muted);text-align:right}
+.badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;justify-content:flex-end}
+.bd{font:800 12px/1 Nunito;padding:6px 9px;border-radius:999px}
+.bd.nophoto{background:#ff9fb8;color:#4a0b22}
+.bd.here{background:var(--teal);color:var(--space)}
+.bd.fresh{background:var(--pink);color:#fff}
+.kids{margin-top:14px;display:grid;gap:8px}
+.kid{background:rgba(255,255,255,.05);border-radius:14px;padding:10px 14px;font-size:16px}
+.kid .warn{display:block;color:var(--sun);font-weight:800;font-size:15px;margin-top:2px}
+.pick{font-size:15px;color:var(--muted);margin-top:10px}
+.arow{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.mark{background:var(--teal);color:var(--space);border:0;border-radius:999px;padding:10px 18px;font-weight:800;font-size:15px}
+.mark.done{background:none;border:2px solid var(--teal);color:var(--teal)}
+.empty{text-align:center;color:var(--muted);padding:40px 0}
+.note{margin-top:28px;font-size:14px;color:var(--muted);text-align:center}
+.hide{display:none!important}
+@media (max-width:600px){
+  .stats{grid-template-columns:1fr 1fr 1fr;gap:8px}.stat{padding:12px}.stat b{font-size:22px}.stat span{font-size:12px}
+  .who span{display:none}
+  .when{text-align:left;width:100%}.badges{justify-content:flex-start}
+}
+</style>
+</head>
+<body>
+<div class="demo-bar">Демо-версия админки: тестовые анкеты + анкеты, заполненные на этом устройстве</div>
+
+<section class="login" id="login">
+  <div class="lbox">
+    <span class="logo"><img src="img/logo_wide.png" alt="Галактика"></span>
+    <h1>Анкеты гостей</h1>
+    <p>Вход для администраторов центра. Доступ выдаёт владелец.</p>
+    <button class="tgbtn" id="tgLogin" type="button">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.8 15.6 9.4 20c.6 0 .8-.3 1.1-.6l2.7-2.6 5.6 4.1c1 .6 1.8.3 2-.9l3.7-17.3c.3-1.5-.6-2.1-1.6-1.7L1.2 9.4c-1.5.6-1.4 1.4-.3 1.8l5.6 1.7L19.4 4.8c.6-.4 1.2-.2.7.2"/></svg>
+      Войти через Telegram
+    </button>
+    <div class="or">или</div>
+    <form class="pw" id="pwForm" novalidate>
+      <input id="lg" placeholder="Логин" autocomplete="username">
+      <input id="pw" type="password" placeholder="Пароль" autocomplete="current-password">
+      <p class="lerr hide" id="lerr">Неверный логин или пароль</p>
+      <button class="pwbtn" type="submit">Войти</button>
+    </form>
+    <small>Демо: логин <b>admin</b>, пароль <b>galaktika</b>. Вход через Telegram в демо срабатывает сразу. В рабочей версии пароль проверяет сервер, а Telegram подтверждает, что вы есть в списке администраторов.</small>
+  </div>
+</section>
+
+<div id="panel" class="hide">
+  <div class="top">
+    <div class="wrap">
+      <span class="logo"><img src="img/logo_wide.png" alt="Галактика"></span>
+      <div class="who"><div class="ava">А</div><span>Администратор</span><button class="out" id="logout" type="button">Выйти</button></div>
+    </div>
+  </div>
+  <main class="wrap">
+    <h2>Анкеты гостей</h2>
+    <div class="stats">
+      <div class="stat"><b id="sAll">0</b><span>всего анкет</span></div>
+      <div class="stat"><b id="sToday">0</b><span>новых сегодня</span></div>
+      <div class="stat"><b id="sHere">0</b><span>пришли сегодня</span></div>
+    </div>
+    <div class="tools">
+      <input class="search" id="q" type="search" placeholder="Код, фамилия или телефон…" autocomplete="off">
+      <button class="flt on" data-f="all" type="button">Все</button>
+      <button class="flt" data-f="today" type="button">Новые</button>
+      <button class="flt" data-f="nophoto" type="button">Без съёмки</button>
+    </div>
+    <div class="list" id="list"></div>
+    <p class="empty hide" id="empty">Ничего не найдено</p>
+    <p class="note">В рабочей версии анкеты хранятся на защищённом сервере в России, а новые сразу приходят администратору в Telegram.</p>
+  </main>
+</div>
+
+<script>
+const DAY=864e5, now=Date.now();
+const SAMPLE=[
+ {code:'G-1187',parent:'Тестова Ольга Николаевна',phone:'+7 900 000-11-22',kids:[{n:'Артём',b:'2018-08-21',t:'астма, ингалятор в рюкзаке'}],pickup:'папа, Тестов Игорь, +7 900 000-11-23',photo:'согласие есть',at:now-2*36e5},
+ {code:'G-2054',parent:'Примерова Анна Сергеевна',phone:'+7 900 000-33-44',kids:[{n:'Вика',b:'2020-03-02',t:''},{n:'Лёва',b:'2022-11-15',t:'аллергия на орехи'}],pickup:'',photo:'НЕ снимать',at:now-5*36e5},
+ {code:'G-3301',parent:'Образцов Дмитрий Петрович',phone:'+7 900 000-55-66',kids:[{n:'Полина',b:'2017-06-10',t:''}],pickup:'бабушка, Образцова Нина',photo:'согласие есть',at:now-1*DAY-3*36e5},
+ {code:'G-4410',parent:'Демова Ксения Андреевна',phone:'+7 900 000-77-88',kids:[{n:'Матвей',b:'2019-01-27',t:'боится громких звуков'}],pickup:'',photo:'согласие есть',at:now-3*DAY},
+ {code:'G-5126',parent:'Пробная Мария Ильинична',phone:'+7 900 000-99-00',kids:[{n:'Ева',b:'2021-09-05',t:''}],pickup:'',photo:'НЕ снимать',at:now-6*DAY}
+];
+const store={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let here=store.get('gal_here',{}), filter='all';
+const all=()=>[...store.get('gal_ankety',[]),...SAMPLE].sort((a,b)=>b.at-a.at);
+const age=b=>{const d=new Date(b),n=new Date();let a=n.getFullYear()-d.getFullYear();if(n<new Date(n.getFullYear(),d.getMonth(),d.getDate()))a--;return a};
+const yrs=a=>{const m=a%10,h=a%100;return a+' '+(m==1&&h!=11?'год':m>=2&&m<=4&&(h<12||h>14)?'года':'лет')};
+const isToday=t=>new Date(t).toDateString()===new Date().toDateString();
+const when=t=>{const d=new Date(t);return (isToday(t)?'сегодня':d.toLocaleDateString('ru-RU',{day:'numeric',month:'long'}))+', '+d.toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit'})};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const hereToday=c=>here[c]&&isToday(here[c]);
+function render(){
+  const q=document.getElementById('q').value.trim().toLowerCase(), qd=q.replace(/\D/g,'');
+  const A=all();
+  document.getElementById('sAll').textContent=A.length;
+  document.getElementById('sToday').textContent=A.filter(a=>isToday(a.at)).length;
+  document.getElementById('sHere').textContent=A.filter(a=>hereToday(a.code)).length;
+  const rows=A.filter(a=>{
+    if(filter==='today'&&!isToday(a.at))return false;
+    if(filter==='nophoto'&&a.photo!=='НЕ снимать')return false;
+    if(!q)return true;
+    return a.code.toLowerCase().includes(q)||a.parent.toLowerCase().includes(q)||a.kids.some(k=>k.n.toLowerCase().includes(q))||(qd.length>=3&&a.phone.replace(/\D/g,'').includes(qd));
+  });
+  document.getElementById('empty').classList.toggle('hide',rows.length>0);
+  document.getElementById('list').innerHTML=rows.map(a=>`
+   <div class="a${isToday(a.at)?' new':''}">
+    <div class="ah">
+     <span class="code">${esc(a.code)}</span>
+     <div class="n"><b>${esc(a.parent)}</b><a href="tel:${esc(a.phone.replace(/[^\d+]/g,''))}">${esc(a.phone)}</a></div>
+     <div class="when">${when(a.at)}<div class="badges">${a.mine?'<span class="bd fresh">с этого устройства</span>':''}${a.photo==='НЕ снимать'?'<span class="bd nophoto">🚫 не снимать</span>':''}${hereToday(a.code)?'<span class="bd here">✓ пришли</span>':''}</div></div>
+    </div>
+    <div class="kids">${a.kids.map(k=>`<div class="kid">👧 ${esc(k.n)}, ${yrs(age(k.b))} (${k.b.split('-').reverse().join('.')})${k.t?`<span class="warn">⚠️ ${esc(k.t)}</span>`:''}</div>`).join('')}</div>
+    ${a.pickup?`<div class="pick">Может забрать: ${esc(a.pickup)}</div>`:''}
+    <div class="arow"><button class="mark${hereToday(a.code)?' done':''}" data-c="${esc(a.code)}" type="button">${hereToday(a.code)?'Отменить отметку':'✓ Пришли сегодня'}</button></div>
+   </div>`).join('');
+}
+document.getElementById('list').addEventListener('click',e=>{const b=e.target.closest('.mark');if(!b)return;const c=b.dataset.c;if(hereToday(c))delete here[c];else here[c]=Date.now();store.set('gal_here',here);render()});
+document.getElementById('q').addEventListener('input',render);
+document.querySelectorAll('.flt').forEach(b=>b.onclick=()=>{document.querySelectorAll('.flt').forEach(x=>x.classList.toggle('on',x===b));filter=b.dataset.f;render()});
+function show(on){document.getElementById('login').classList.toggle('hide',on);document.getElementById('panel').classList.toggle('hide',!on);if(on)render()}
+const enter=()=>{try{sessionStorage.setItem('gal_admin','1')}catch(e){}show(true)};
+document.getElementById('tgLogin').onclick=enter;
+document.getElementById('pwForm').addEventListener('submit',e=>{e.preventDefault();
+  const ok=document.getElementById('lg').value.trim().toLowerCase()==='admin'&&document.getElementById('pw').value==='galaktika';
+  document.getElementById('lerr').classList.toggle('hide',ok);if(ok){document.getElementById('pw').value='';enter()}});
+document.getElementById('logout').onclick=()=>{try{sessionStorage.removeItem('gal_admin')}catch(e){}show(false)};
+let logged=false;try{logged=sessionStorage.getItem('gal_admin')==='1'}catch(e){}
+show(logged);
+</script>
+</body>
+</html>
